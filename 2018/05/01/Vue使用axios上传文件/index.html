@@ -94,17 +94,17 @@
 
 
 
-<meta name="description" content="说明vuex思想中的state是只能通过mutation改变的，所以如果想让state和v-model进行双向绑定，可以通过调用mutation来改变state，同时配合computed达到双向绑定的效果。 Vuex123456789state: &amp;#123;  mes: &amp;apos;mes&amp;apos;&amp;#125;mutation: &amp;#123;  updateMes: (state,data)">
+<meta name="description" content="模板1&amp;lt;input type=&amp;quot;file&amp;quot; ref=&amp;quot;myFile&amp;quot; &amp;gt; script1234567891011121314let prod = new FormData()let file = this.$refs.myFile.files[0]prod.append(&amp;apos;file&amp;apos;,file)let config = &amp;#1">
 <meta property="og:type" content="article">
-<meta property="og:title" content="vuex的v-model双向绑定">
-<meta property="og:url" content="http://yoursite.com/2018/04/30/vuex的v-model双向绑定/index.html">
+<meta property="og:title" content="Vue使用axios上传文件">
+<meta property="og:url" content="http://yoursite.com/2018/05/01/Vue使用axios上传文件/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="说明vuex思想中的state是只能通过mutation改变的，所以如果想让state和v-model进行双向绑定，可以通过调用mutation来改变state，同时配合computed达到双向绑定的效果。 Vuex123456789state: &amp;#123;  mes: &amp;apos;mes&amp;apos;&amp;#125;mutation: &amp;#123;  updateMes: (state,data)">
+<meta property="og:description" content="模板1&amp;lt;input type=&amp;quot;file&amp;quot; ref=&amp;quot;myFile&amp;quot; &amp;gt; script1234567891011121314let prod = new FormData()let file = this.$refs.myFile.files[0]prod.append(&amp;apos;file&amp;apos;,file)let config = &amp;#1">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-04-30T14:14:10.011Z">
+<meta property="og:updated_time" content="2018-05-01T12:28:48.667Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="vuex的v-model双向绑定">
-<meta name="twitter:description" content="说明vuex思想中的state是只能通过mutation改变的，所以如果想让state和v-model进行双向绑定，可以通过调用mutation来改变state，同时配合computed达到双向绑定的效果。 Vuex123456789state: &amp;#123;  mes: &amp;apos;mes&amp;apos;&amp;#125;mutation: &amp;#123;  updateMes: (state,data)">
+<meta name="twitter:title" content="Vue使用axios上传文件">
+<meta name="twitter:description" content="模板1&amp;lt;input type=&amp;quot;file&amp;quot; ref=&amp;quot;myFile&amp;quot; &amp;gt; script1234567891011121314let prod = new FormData()let file = this.$refs.myFile.files[0]prod.append(&amp;apos;file&amp;apos;,file)let config = &amp;#1">
 
 
 
@@ -133,13 +133,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/04/30/vuex的v-model双向绑定/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/05/01/Vue使用axios上传文件/"/>
 
 
 
 
 
-  <title>vuex的v-model双向绑定 | Hexo</title>
+  <title>Vue使用axios上传文件 | Hexo</title>
   
 
 
@@ -262,7 +262,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/30/vuex的v-model双向绑定/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/01/Vue使用axios上传文件/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="John Doe">
@@ -279,7 +279,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">vuex的v-model双向绑定</h1>
+          <h1 class="post-title" itemprop="name headline">Vue使用axios上传文件</h1>
         
 
         <div class="post-meta">
@@ -291,8 +291,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-30T21:46:09+08:00">
-                2018-04-30
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-01T20:18:47+08:00">
+                2018-05-01
               </time>
             
 
@@ -329,10 +329,9 @@
       
 
       
-        <h3 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h3><p>vuex思想中的state是只能通过mutation改变的，所以如果想让state和v-model进行双向绑定，可以通过调用mutation来改变state，同时配合computed达到双向绑定的效果。</p>
-<h3 id="Vuex"><a href="#Vuex" class="headerlink" title="Vuex"></a>Vuex</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">state: &#123;</span><br><span class="line">  mes: &apos;mes&apos;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">mutation: &#123;</span><br><span class="line">  updateMes: (state,data) =&gt; &#123;</span><br><span class="line">    state.mes = data</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="模板"><a href="#模板" class="headerlink" title="模板"></a>模板</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;input type=&quot;text&quot; v-model=&quot;mes&quot;&gt;</span><br></pre></td></tr></table></figure>
-<h3 id="script"><a href="#script" class="headerlink" title="script"></a>script</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">computed: &#123;</span><br><span class="line">  mes: &#123;</span><br><span class="line">    get () &#123;</span><br><span class="line">      return this.$store.state.mes</span><br><span class="line">    &#125;,</span><br><span class="line">    set (value) &#123;</span><br><span class="line">      this.$store.commit(&apos;updateMes&apos;,value)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <h3 id="模板"><a href="#模板" class="headerlink" title="模板"></a>模板</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;input type=&quot;file&quot; ref=&quot;myFile&quot; &gt;</span><br></pre></td></tr></table></figure>
+<h3 id="script"><a href="#script" class="headerlink" title="script"></a>script</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">let prod = new FormData()</span><br><span class="line">let file = this.$refs.myFile.files[0]</span><br><span class="line">prod.append(&apos;file&apos;,file)</span><br><span class="line"></span><br><span class="line">let config = &#123;</span><br><span class="line">  headers: &#123;</span><br><span class="line">    &apos;Content-Type&apos;: &apos;multipart/form-data&apos;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">axios.post(url,prod,config).then(() =&gt; &#123;</span><br><span class="line">  ...</span><br><span class="line">&#125;).catch(() =&gt; &#123;</span><br><span class="line">  ...</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
       
     </div>
     
@@ -356,15 +355,15 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2018/04/30/vuex的v-model双向绑定/" rel="next" title="vuex的v-model双向绑定">
+                <i class="fa fa-chevron-left"></i> vuex的v-model双向绑定
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/05/01/Vue使用axios上传文件/" rel="prev" title="Vue使用axios上传文件">
-                Vue使用axios上传文件 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -480,7 +479,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#说明"><span class="nav-number">1.</span> <span class="nav-text">说明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Vuex"><span class="nav-number">2.</span> <span class="nav-text">Vuex</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#模板"><span class="nav-number">3.</span> <span class="nav-text">模板</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#script"><span class="nav-number">4.</span> <span class="nav-text">script</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#模板"><span class="nav-number">1.</span> <span class="nav-text">模板</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#script"><span class="nav-number">2.</span> <span class="nav-text">script</span></a></li></ol></div>
             
 
           </div>
