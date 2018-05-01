@@ -94,17 +94,17 @@
 
 
 
-<meta name="description" content="说明vuex思想中的state是只能通过mutation改变的，所以如果想让state和v-model进行双向绑定，可以通过调用mutation来改变state，同时配合computed达到双向绑定的效果。 Vuex123456789state: &amp;#123;  mes: &amp;apos;mes&amp;apos;&amp;#125;mutation: &amp;#123;  updateMes: (state,data)">
+<meta name="description" content="前言Promise代表一个异步操作。具体通过下面的Promise实例来说明。 创建一个Promise实例1234567891011121314const MyPromise =  new Promise((resolve,reject) =&amp;gt; &amp;#123;  ...  if (/*异步操作成功*/) &amp;#123;    resolve(value)  &amp;#125; else &amp;#123;">
 <meta property="og:type" content="article">
-<meta property="og:title" content="vuex的v-model双向绑定">
-<meta property="og:url" content="http://yoursite.com/2018/04/30/vuex的v-model双向绑定/index.html">
+<meta property="og:title" content="Promise简单总结">
+<meta property="og:url" content="http://yoursite.com/2018/05/01/Promise简单总结/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="说明vuex思想中的state是只能通过mutation改变的，所以如果想让state和v-model进行双向绑定，可以通过调用mutation来改变state，同时配合computed达到双向绑定的效果。 Vuex123456789state: &amp;#123;  mes: &amp;apos;mes&amp;apos;&amp;#125;mutation: &amp;#123;  updateMes: (state,data)">
+<meta property="og:description" content="前言Promise代表一个异步操作。具体通过下面的Promise实例来说明。 创建一个Promise实例1234567891011121314const MyPromise =  new Promise((resolve,reject) =&amp;gt; &amp;#123;  ...  if (/*异步操作成功*/) &amp;#123;    resolve(value)  &amp;#125; else &amp;#123;">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-04-30T14:14:10.011Z">
+<meta property="og:updated_time" content="2018-05-01T13:34:09.752Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="vuex的v-model双向绑定">
-<meta name="twitter:description" content="说明vuex思想中的state是只能通过mutation改变的，所以如果想让state和v-model进行双向绑定，可以通过调用mutation来改变state，同时配合computed达到双向绑定的效果。 Vuex123456789state: &amp;#123;  mes: &amp;apos;mes&amp;apos;&amp;#125;mutation: &amp;#123;  updateMes: (state,data)">
+<meta name="twitter:title" content="Promise简单总结">
+<meta name="twitter:description" content="前言Promise代表一个异步操作。具体通过下面的Promise实例来说明。 创建一个Promise实例1234567891011121314const MyPromise =  new Promise((resolve,reject) =&amp;gt; &amp;#123;  ...  if (/*异步操作成功*/) &amp;#123;    resolve(value)  &amp;#125; else &amp;#123;">
 
 
 
@@ -133,13 +133,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/04/30/vuex的v-model双向绑定/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/05/01/Promise简单总结/"/>
 
 
 
 
 
-  <title>vuex的v-model双向绑定 | Hexo</title>
+  <title>Promise简单总结 | Hexo</title>
   
 
 
@@ -262,7 +262,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/30/vuex的v-model双向绑定/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/01/Promise简单总结/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="John Doe">
@@ -279,7 +279,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">vuex的v-model双向绑定</h1>
+          <h1 class="post-title" itemprop="name headline">Promise简单总结</h1>
         
 
         <div class="post-meta">
@@ -291,8 +291,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-30T21:46:09+08:00">
-                2018-04-30
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-01T21:25:18+08:00">
+                2018-05-01
               </time>
             
 
@@ -329,10 +329,15 @@
       
 
       
-        <h3 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h3><p>vuex思想中的state是只能通过mutation改变的，所以如果想让state和v-model进行双向绑定，可以通过调用mutation来改变state，同时配合computed达到双向绑定的效果。</p>
-<h3 id="Vuex"><a href="#Vuex" class="headerlink" title="Vuex"></a>Vuex</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">state: &#123;</span><br><span class="line">  mes: &apos;mes&apos;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">mutation: &#123;</span><br><span class="line">  updateMes: (state,data) =&gt; &#123;</span><br><span class="line">    state.mes = data</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="模板"><a href="#模板" class="headerlink" title="模板"></a>模板</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;input type=&quot;text&quot; v-model=&quot;mes&quot;&gt;</span><br></pre></td></tr></table></figure>
-<h3 id="script"><a href="#script" class="headerlink" title="script"></a>script</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">computed: &#123;</span><br><span class="line">  mes: &#123;</span><br><span class="line">    get () &#123;</span><br><span class="line">      return this.$store.state.mes</span><br><span class="line">    &#125;,</span><br><span class="line">    set (value) &#123;</span><br><span class="line">      this.$store.commit(&apos;updateMes&apos;,value)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>Promise代表一个异步操作。具体通过下面的Promise实例来说明。</p>
+<h3 id="创建一个Promise实例"><a href="#创建一个Promise实例" class="headerlink" title="创建一个Promise实例"></a>创建一个Promise实例</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">const MyPromise =  new Promise((resolve,reject) =&gt; &#123;</span><br><span class="line">  ...</span><br><span class="line">  if (/*异步操作成功*/) &#123;</span><br><span class="line">    resolve(value)</span><br><span class="line">  &#125; else &#123;</span><br><span class="line">    reject(error)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">MyPromise.then((value) =&gt; &#123;</span><br><span class="line">  ...</span><br><span class="line">&#125;).catch((error) =&gt; &#123;</span><br><span class="line">  ...</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>Promise构造函数接收一个参数，该参数是一个异步执行的函数。这个函数有两个参数resolve和reject。</li>
+<li>当异步操作执行成功时将会调用resolve，resolve的作用是将promise对象的状态由“未完成”变为“成功”，此时将会调用resolved（成功）状态的回调函数，该回调函数是then方法的第一个参数。该回调函数的参数值可通过设置resolve函数的参数传递过来。</li>
+<li>当异步操作执行失败时将会调用reject，reject的作用是将promise对象的状态由“未完成”变为“失败”，此时将会调用rejected（失败）状态的回调函数，该回调函数是then方法的第二个参数。但一般不会使用then的第二个参数，而是使用catch方法。因为catch方法不仅可以捕获到一开始promise对象中异步操作失败的错误，还能捕获到前面then方法中的错误。<h3 id="使用Promise封装简化版axios中get方法"><a href="#使用Promise封装简化版axios中get方法" class="headerlink" title="使用Promise封装简化版axios中get方法"></a>使用Promise封装简化版axios中get方法</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"> const MyAxios = &#123;</span><br><span class="line">  get: function(url) &#123;</span><br><span class="line">    return new Promise((resolve,reject) =&gt; &#123;</span><br><span class="line">      const XHR = new XMLHttpRequest()</span><br><span class="line">      XHR.open(&apos;GET&apos;,url,true)</span><br><span class="line">      XHR.onreadystatechange = function() &#123;</span><br><span class="line">        if (this.readyState !== 4) &#123;</span><br><span class="line">          return</span><br><span class="line">        &#125;</span><br><span class="line">        if (this.status === 200) &#123;</span><br><span class="line">          resolve(this.response)</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">          reject(new Error(this.statusText))</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">      XHR.send()</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+
       
     </div>
     
@@ -356,15 +361,15 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2018/05/01/关于scoped/" rel="next" title="关于scoped">
+                <i class="fa fa-chevron-left"></i> 关于scoped
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/05/01/Vue使用axios上传文件/" rel="prev" title="Vue使用axios上传文件">
-                Vue使用axios上传文件 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -480,7 +485,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#说明"><span class="nav-number">1.</span> <span class="nav-text">说明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Vuex"><span class="nav-number">2.</span> <span class="nav-text">Vuex</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#模板"><span class="nav-number">3.</span> <span class="nav-text">模板</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#script"><span class="nav-number">4.</span> <span class="nav-text">script</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建一个Promise实例"><span class="nav-number">2.</span> <span class="nav-text">创建一个Promise实例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用Promise封装简化版axios中get方法"><span class="nav-number">3.</span> <span class="nav-text">使用Promise封装简化版axios中get方法</span></a></li></ol></div>
             
 
           </div>
