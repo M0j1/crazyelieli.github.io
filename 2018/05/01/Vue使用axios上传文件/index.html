@@ -5,23 +5,23 @@
   
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Vue使用axios上传文件 | Eli的博客</title>
+  <link rel="dns-prefetch" href="//litten.me">
+  <title>Vue使用axios上传文件 | Litten的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="模板1&amp;lt;input type=&amp;quot;file&amp;quot; ref=&amp;quot;myFile&amp;quot; &amp;gt; script1234567891011121314let prod = new FormData()let file = this.$refs.myFile.files[0]prod.append(&amp;apos;file&amp;apos;,file)let config = &amp;#1">
+  <meta name="description" content="模板1&amp;lt;input type=&quot;file&quot; ref=&quot;myFile&quot; &amp;gt; script1234567891011121314let prod = new FormData()let file = this.$refs.myFile.files[0]prod.append(&apos;file&apos;,file)let config = &amp;#123;  headers: &amp;#123;    &apos;Conte">
 <meta name="keywords" content="前端,js,jquery,javascript,html5,开发者,程序猿,程序媛,极客,编程,代码,开源,IT网站,Developer,Programmer,Coder,Geek,html,css,css3,用户体验">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Vue使用axios上传文件">
-<meta property="og:url" content="http://yoursite.com/2018/05/01/Vue使用axios上传文件/index.html">
-<meta property="og:site_name" content="Eli的博客">
-<meta property="og:description" content="模板1&amp;lt;input type=&amp;quot;file&amp;quot; ref=&amp;quot;myFile&amp;quot; &amp;gt; script1234567891011121314let prod = new FormData()let file = this.$refs.myFile.files[0]prod.append(&amp;apos;file&amp;apos;,file)let config = &amp;#1">
+<meta property="og:url" content="//litten.me/2018/05/01/Vue使用axios上传文件/index.html">
+<meta property="og:site_name" content="Litten的博客">
+<meta property="og:description" content="模板1&amp;lt;input type=&quot;file&quot; ref=&quot;myFile&quot; &amp;gt; script1234567891011121314let prod = new FormData()let file = this.$refs.myFile.files[0]prod.append(&apos;file&apos;,file)let config = &amp;#123;  headers: &amp;#123;    &apos;Conte">
 <meta property="og:locale" content="default">
 <meta property="og:updated_time" content="2018-05-01T12:28:48.667Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Vue使用axios上传文件">
-<meta name="twitter:description" content="模板1&amp;lt;input type=&amp;quot;file&amp;quot; ref=&amp;quot;myFile&amp;quot; &amp;gt; script1234567891011121314let prod = new FormData()let file = this.$refs.myFile.files[0]prod.append(&amp;apos;file&amp;apos;,file)let config = &amp;#1">
+<meta name="twitter:description" content="模板1&amp;lt;input type=&quot;file&quot; ref=&quot;myFile&quot; &amp;gt; script1234567891011121314let prod = new FormData()let file = this.$refs.myFile.files[0]prod.append(&apos;file&apos;,file)let config = &amp;#123;  headers: &amp;#123;    &apos;Conte">
   
-    <link rel="alternative" href="/atom.xml" title="Eli的博客" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="Litten的博客" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png">
@@ -51,10 +51,10 @@
 			<img src="" class="js-avatar">
 		</a>
 		<hgroup>
-		  <h1 class="header-author"><a href="/">Eli</a></h1>
+		  <h1 class="header-author"><a href="/">Litten</a></h1>
 		</hgroup>
 		
-		<p class="header-subtitle">前端菜鸟</p>
+		<p class="header-subtitle">胆小认生，不易相处</p>
 		
 
 		<nav class="header-menu">
@@ -111,10 +111,10 @@
 				<img src="" class="js-avatar">
 			</div>
 			<hgroup>
-			  <h1 class="header-author js-header-author">Eli</h1>
+			  <h1 class="header-author js-header-author">Litten</h1>
 			</hgroup>
 			
-			<p class="header-subtitle"><i class="icon icon-quo-left"></i>前端菜鸟<i class="icon icon-quo-right"></i></p>
+			<p class="header-subtitle"><i class="icon icon-quo-left"></i>胆小认生，不易相处<i class="icon icon-quo-right"></i></p>
 			
 			
 			
@@ -179,8 +179,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="模板"><a href="#模板" class="headerlink" title="模板"></a>模板</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;input type=&quot;file&quot; ref=&quot;myFile&quot; &gt;</span><br></pre></td></tr></table></figure>
-<h3 id="script"><a href="#script" class="headerlink" title="script"></a>script</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">let prod = new FormData()</span><br><span class="line">let file = this.$refs.myFile.files[0]</span><br><span class="line">prod.append(&apos;file&apos;,file)</span><br><span class="line"></span><br><span class="line">let config = &#123;</span><br><span class="line">  headers: &#123;</span><br><span class="line">    &apos;Content-Type&apos;: &apos;multipart/form-data&apos;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">axios.post(url,prod,config).then(() =&gt; &#123;</span><br><span class="line">  ...</span><br><span class="line">&#125;).catch(() =&gt; &#123;</span><br><span class="line">  ...</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+        <h3 id="模板"><a href="#模板" class="headerlink" title="模板"></a>模板</h3><figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="keyword">input</span> <span class="keyword">type</span>=<span class="string">"file"</span> <span class="keyword">ref</span>=<span class="string">"myFile"</span> &gt;</span><br></pre></td></tr></table></figure>
+<h3 id="script"><a href="#script" class="headerlink" title="script"></a>script</h3><figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">let prod = <span class="keyword">new</span> FormData()</span><br><span class="line">let file = <span class="keyword">this</span>.$refs.myFile.files[<span class="number">0</span>]</span><br><span class="line">prod.append(<span class="string">'file'</span>,file)</span><br><span class="line"></span><br><span class="line">let config = &#123;</span><br><span class="line">  headers: &#123;</span><br><span class="line">    <span class="string">'Content-Type'</span>: <span class="string">'multipart/form-data'</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">axios.post(url,prod,config).<span class="keyword">then</span>(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  ...</span><br><span class="line">&#125;).<span class="keyword">catch</span>(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  ...</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 
       
 
@@ -260,7 +260,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/05/01/Vue使用axios上传文件/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://litten.me/2018/05/01/Vue使用axios上传文件/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -328,7 +328,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2018 Eli
+    		&copy; 2018 Litten
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
