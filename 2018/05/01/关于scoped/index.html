@@ -9,14 +9,14 @@
   <title>关于scoped | Eli的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="说明不得不说，scoped有时算是一个坑，因为在使用vue有时会出现css样式无效的情况，无论使用!important还是行内样式都没有效果。为什么会出现这种情况，我们接下来来讨论下。 scoped原理要讨论上面的情况，首先我们得知道scoped的原理。vue中的组件使用了类似Shadow Dom的思想，使其封闭起来，通过scoped使组件之间的样式不会相互影响。而对于scoped的原理，简单来说">
-<meta name="keywords" content="前端,js,jquery,javascript,html5,开发者,程序猿,程序媛,极客,编程,代码,开源,IT网站,Developer,Programmer,Coder,Geek,html,css,css3,用户体验">
+<meta name="keywords" content="vue">
 <meta property="og:type" content="article">
 <meta property="og:title" content="关于scoped">
 <meta property="og:url" content="//eli.me/2018/05/01/关于scoped/index.html">
 <meta property="og:site_name" content="Eli的博客">
 <meta property="og:description" content="说明不得不说，scoped有时算是一个坑，因为在使用vue有时会出现css样式无效的情况，无论使用!important还是行内样式都没有效果。为什么会出现这种情况，我们接下来来讨论下。 scoped原理要讨论上面的情况，首先我们得知道scoped的原理。vue中的组件使用了类似Shadow Dom的思想，使其封闭起来，通过scoped使组件之间的样式不会相互影响。而对于scoped的原理，简单来说">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-05-01T13:19:34.256Z">
+<meta property="og:updated_time" content="2018-05-02T03:11:36.780Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="关于scoped">
 <meta name="twitter:description" content="说明不得不说，scoped有时算是一个坑，因为在使用vue有时会出现css样式无效的情况，无论使用!important还是行内样式都没有效果。为什么会出现这种情况，我们接下来来讨论下。 scoped原理要讨论上面的情况，首先我们得知道scoped的原理。vue中的组件使用了类似Shadow Dom的思想，使其封闭起来，通过scoped使组件之间的样式不会相互影响。而对于scoped的原理，简单来说">
@@ -193,6 +193,17 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">vue</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -390,11 +401,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">js</a>
+                <a href="javascript:void(0)" class="js-tag color5">js基础</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">es6</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">vue</a>
               </li>
             
             <div class="clearfix"></div>
