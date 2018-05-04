@@ -220,6 +220,36 @@
 </ul>
 <h3 id="设置来回运动"><a href="#设置来回运动" class="headerlink" title="设置来回运动"></a>设置来回运动</h3><p>子属性animation-direction动画方向有一个值alternate(动画在奇数次（1、3、5…）正向播放，在偶数次（2、4、6…）反向播放)，通过该值设置动画来回运动。<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">  <span class="attribute">animation</span>: myAnimation <span class="number">2s</span> infinite alternate;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <h3 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h3><p><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_Animations/Using_CSS_animations" target="_blank" rel="noopener">https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_Animations/Using_CSS_animations</a><br><a href="http://www.runoob.com/cssref/css3-pr-animation.html" target="_blank" rel="noopener">http://www.runoob.com/cssref/css3-pr-animation.html</a></p>
+<h1 id="transition"><a href="#transition" class="headerlink" title="transition"></a>transition</h1><h3 id="说明-1"><a href="#说明-1" class="headerlink" title="说明"></a>说明</h3><p>transition与animation不同，是不会主动播放动画的，只有当设定的样式改变时,在一种样式过渡到另一种样式的过程中播放动画。<br>transition属性的子属性如下</p>
+<table>
+<thead>
+<tr>
+<th>子属性</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>transition-property</td>
+<td>指定CSS属性的name，transition效果</td>
+</tr>
+<tr>
+<td>transition-duration</td>
+<td>transition效果需要指定多少秒或毫秒才能完成</td>
+</tr>
+<tr>
+<td>transition-timing-function</td>
+<td>指定transition效果的转速曲线</td>
+</tr>
+<tr>
+<td>transition-delay</td>
+<td>定义transition效果开始的时候</td>
+</tr>
+</tbody>
+</table>
+<h3 id="各浏览器兼容"><a href="#各浏览器兼容" class="headerlink" title="各浏览器兼容"></a>各浏览器兼容</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="attribute">transition</span>: width <span class="number">2s</span>;</span><br><span class="line"><span class="attribute">-moz-transition</span>: width <span class="number">2s</span>;	<span class="comment">/* Firefox 4 */</span></span><br><span class="line"><span class="attribute">-webkit-transition</span>: width <span class="number">2s</span>;	<span class="comment">/* Safari 和 Chrome */</span></span><br><span class="line"><span class="attribute">-o-transition</span>: width <span class="number">2s</span>;	<span class="comment">/* Opera */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="基本例子-1"><a href="#基本例子-1" class="headerlink" title="基本例子"></a>基本例子</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">  <span class="attribute">background</span>: <span class="number">#ccc</span>;</span><br><span class="line">  <span class="attribute">-webkit-transition</span>: height,width,background <span class="number">2s</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">div</span><span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">200px</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">200px</span>;</span><br><span class="line">  <span class="attribute">background</span>: red;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>注意：</strong>当简写方式中设定多个样式时，只有最后一个样式会起到动画效果。如上述代码只有background会起到动画效果。如果想设定多个样式，不能使用简写方式。代码如下<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">  <span class="attribute">background</span>: <span class="number">#ccc</span>;</span><br><span class="line">  <span class="attribute">-webkit-transition-property</span>: width,height,background;</span><br><span class="line">  <span class="attribute">-webkit-transition-duration</span>: <span class="number">2s</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">div</span><span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">200px</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">200px</span>;</span><br><span class="line">  <span class="attribute">background</span>: red;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 
       
 
