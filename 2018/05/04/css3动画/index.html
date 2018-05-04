@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="Eli的博客">
 <meta property="og:description" content="前言css3新增了两种动画，一种是功能强大的animation(动画)，一种是功能相对简单的transition(过渡)。接下来我们就来简单地了解一下这两种动画。 animation说明animation属性有各种子属性，如下：    子属性 描述     animation-delay 设置延时，即从元素加载完成之后到动画序列开始执行的这段时间。   animation-direction 设置">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-05-04T09:10:17.757Z">
+<meta property="og:updated_time" content="2018-05-04T09:13:30.036Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="css3动画">
 <meta name="twitter:description" content="前言css3新增了两种动画，一种是功能强大的animation(动画)，一种是功能相对简单的transition(过渡)。接下来我们就来简单地了解一下这两种动画。 animation说明animation属性有各种子属性，如下：    子属性 描述     animation-delay 设置延时，即从元素加载完成之后到动画序列开始执行的这段时间。   animation-direction 设置">
@@ -253,7 +253,7 @@
 <h3 id="各浏览器兼容"><a href="#各浏览器兼容" class="headerlink" title="各浏览器兼容"></a>各浏览器兼容</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="attribute">transition</span>: width <span class="number">2s</span>;</span><br><span class="line"><span class="attribute">-moz-transition</span>: width <span class="number">2s</span>;	<span class="comment">/* Firefox 4 */</span></span><br><span class="line"><span class="attribute">-webkit-transition</span>: width <span class="number">2s</span>;	<span class="comment">/* Safari 和 Chrome */</span></span><br><span class="line"><span class="attribute">-o-transition</span>: width <span class="number">2s</span>;	<span class="comment">/* Opera */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="基本例子-1"><a href="#基本例子-1" class="headerlink" title="基本例子"></a>基本例子</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">  <span class="attribute">background</span>: <span class="number">#ccc</span>;</span><br><span class="line">  <span class="attribute">-webkit-transition</span>: height,width,background <span class="number">2s</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">div</span><span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">200px</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">200px</span>;</span><br><span class="line">  <span class="attribute">background</span>: red;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><strong>注意：</strong>当简写方式中设定多个样式时，只有最后一个样式会起到动画效果。如上述代码只有background会起到动画效果。如果想设定多个样式，不能使用简写方式。代码如下<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">  <span class="attribute">background</span>: <span class="number">#ccc</span>;</span><br><span class="line">  <span class="attribute">-webkit-transition-property</span>: width,height,background;</span><br><span class="line">  <span class="attribute">-webkit-transition-duration</span>: <span class="number">2s</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">div</span><span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">200px</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">200px</span>;</span><br><span class="line">  <span class="attribute">background</span>: red;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h3 id="参考连接"><a href="#参考连接" class="headerlink" title="参考连接"></a>参考连接</h3><p><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/transition" target="_blank" rel="noopener">https://developer.mozilla.org/zh-CN/docs/Web/CSS/transition</a><br><a href="http://www.runoob.com/cssref/css3-pr-transition.html" target="_blank" rel="noopener">http://www.runoob.com/cssref/css3-pr-transition.html</a></p>
+<h3 id="参考链接-1"><a href="#参考链接-1" class="headerlink" title="参考链接"></a>参考链接</h3><p><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/transition" target="_blank" rel="noopener">https://developer.mozilla.org/zh-CN/docs/Web/CSS/transition</a><br><a href="http://www.runoob.com/cssref/css3-pr-transition.html" target="_blank" rel="noopener">http://www.runoob.com/cssref/css3-pr-transition.html</a></p>
 
       
 
@@ -482,10 +482,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vue</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">js</a>
               </li>
              
@@ -495,6 +491,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">css</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">vue</a>
               </li>
             
             <div class="clearfix"></div>
