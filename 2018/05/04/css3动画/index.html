@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="//eli.me">
-  <title>Promise简单总结 | Eli的博客</title>
+  <title>css3动画 | Eli的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="前言Promise代表一个异步操作。具体通过下面的Promise实例来说明。 创建一个Promise实例1234567891011121314const MyPromise =  new Promise((resolve,reject) =&amp;gt; &amp;#123;  ...  if (/*异步操作成功*/) &amp;#123;    resolve(value)  &amp;#125; else &amp;#123;">
-<meta name="keywords" content="js,es6">
+  <meta name="description" content="前言css3新增了两种动画，一种是功能强大的animation(动画)，一种是功能相对简单的transition(过渡)。接下来我们就来简单地了解一下这两种动画。 animation说明animation属性有各种子属性，如下：    子属性 描述     animation-delay 设置延时，即从元素加载完成之后到动画序列开始执行的这段时间。   animation-direction 设置">
+<meta name="keywords" content="css">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Promise简单总结">
-<meta property="og:url" content="//eli.me/2018/05/01/Promise简单总结/index.html">
+<meta property="og:title" content="css3动画">
+<meta property="og:url" content="//eli.me/2018/05/04/css3动画/index.html">
 <meta property="og:site_name" content="Eli的博客">
-<meta property="og:description" content="前言Promise代表一个异步操作。具体通过下面的Promise实例来说明。 创建一个Promise实例1234567891011121314const MyPromise =  new Promise((resolve,reject) =&amp;gt; &amp;#123;  ...  if (/*异步操作成功*/) &amp;#123;    resolve(value)  &amp;#125; else &amp;#123;">
+<meta property="og:description" content="前言css3新增了两种动画，一种是功能强大的animation(动画)，一种是功能相对简单的transition(过渡)。接下来我们就来简单地了解一下这两种动画。 animation说明animation属性有各种子属性，如下：    子属性 描述     animation-delay 设置延时，即从元素加载完成之后到动画序列开始执行的这段时间。   animation-direction 设置">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-05-02T03:53:26.214Z">
+<meta property="og:updated_time" content="2018-05-04T07:42:10.306Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Promise简单总结">
-<meta name="twitter:description" content="前言Promise代表一个异步操作。具体通过下面的Promise实例来说明。 创建一个Promise实例1234567891011121314const MyPromise =  new Promise((resolve,reject) =&amp;gt; &amp;#123;  ...  if (/*异步操作成功*/) &amp;#123;    resolve(value)  &amp;#125; else &amp;#123;">
+<meta name="twitter:title" content="css3动画">
+<meta name="twitter:description" content="前言css3新增了两种动画，一种是功能强大的animation(动画)，一种是功能相对简单的transition(过渡)。接下来我们就来简单地了解一下这两种动画。 animation说明animation属性有各种子属性，如下：    子属性 描述     animation-delay 设置延时，即从元素加载完成之后到动画序列开始执行的这段时间。   animation-direction 设置">
   
     <link rel="alternative" href="/atom.xml" title="Eli的博客" type="application/atom+xml">
   
@@ -143,34 +143,85 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Promise简单总结" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-css3动画" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Promise简单总结
+      css3动画
     </h1>
   
 
         
-        <a href="/2018/05/01/Promise简单总结/" class="archive-article-date">
-  	<time datetime="2018-05-01T13:25:18.994Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-01</time>
+        <a href="/2018/05/04/css3动画/" class="archive-article-date">
+  	<time datetime="2018-05-04T06:39:11.920Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-04</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>Promise代表一个异步操作。具体通过下面的Promise实例来说明。</p>
-<h3 id="创建一个Promise实例"><a href="#创建一个Promise实例" class="headerlink" title="创建一个Promise实例"></a>创建一个Promise实例</h3><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> MyPromise =  <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve,reject</span>) =&gt;</span> &#123;</span><br><span class="line">  ...</span><br><span class="line">  <span class="keyword">if</span> (<span class="comment">/*异步操作成功*/</span>) &#123;</span><br><span class="line">    resolve(value)</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    reject(error)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">MyPromise.then(<span class="function">(<span class="params">value</span>) =&gt;</span> &#123;</span><br><span class="line">  ...</span><br><span class="line">&#125;).catch(<span class="function">(<span class="params">error</span>) =&gt;</span> &#123;</span><br><span class="line">  ...</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>css3新增了两种动画，一种是功能强大的animation(动画)，一种是功能相对简单的transition(过渡)。接下来我们就来简单地了解一下这两种动画。</p>
+<h3 id="animation"><a href="#animation" class="headerlink" title="animation"></a>animation</h3><h4 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h4><p>animation属性有各种子属性，如下：</p>
+<table>
+<thead>
+<tr>
+<th>子属性</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>animation-delay</td>
+<td>设置延时，即从元素加载完成之后到动画序列开始执行的这段时间。</td>
+</tr>
+<tr>
+<td>animation-direction</td>
+<td>设置动画在每次运行完后是反向运行还是重新回到开始位置重复运行。</td>
+</tr>
+<tr>
+<td>animation-duration</td>
+<td>设置动画一个周期的时长。</td>
+</tr>
+<tr>
+<td>animation-iteration-count</td>
+<td>设置动画重复次数， 可以指定infinite无限次重复动画</td>
+</tr>
+<tr>
+<td>animation-name</td>
+<td>指定由@keyframes描述的关键帧名称。</td>
+</tr>
+<tr>
+<td>animation-play-state</td>
+<td>允许暂停和恢复动画。</td>
+</tr>
+<tr>
+<td>animation-timing-function</td>
+<td>设置动画速度， 即通过建立加速度曲线，设置动画在关键帧之间是如何变化。</td>
+</tr>
+<tr>
+<td>animation-fill-mode</td>
+<td>指定动画执行前后如何为目标元素应用样式。</td>
+</tr>
+</tbody>
+</table>
+<p>####基本例子<br>使用animation需要两个步骤</p>
 <ul>
-<li>Promise构造函数接收一个参数，该参数是一个异步执行的函数。这个函数有两个参数resolve和reject。</li>
-<li>当异步操作执行成功时将会调用resolve，resolve的作用是将promise对象的状态由“未完成”变为“成功”，此时将会调用resolved（成功）状态的回调函数，该回调函数是then方法的第一个参数。该回调函数的参数值可通过设置resolve函数的参数传递过来。</li>
-<li>当异步操作执行失败时将会调用reject，reject的作用是将promise对象的状态由“未完成”变为“失败”，此时将会调用rejected（失败）状态的回调函数，该回调函数是then方法的第二个参数。但一般不会使用then的第二个参数，而是使用catch方法。因为catch方法不仅可以捕获到一开始promise对象中异步操作失败的错误，还能捕获到前面then方法中的错误。</li>
+<li>使用<code>@keyframes</code>定义一个动画</li>
+<li>css样式加上animation属性，其子属性最少写上animation-name(动画名)和animation-duration(动画一个周期时间)<br>代码如下<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">@<span class="keyword">keyframes</span> myAnimation &#123;</span><br><span class="line">  <span class="selector-tag">from</span> &#123;</span><br><span class="line">    <span class="comment">/* 起始样式 */</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="selector-tag">to</span> &#123;</span><br><span class="line">    <span class="comment">/* 最终样式 */</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">  <span class="attribute">animation</span>: myAnimation <span class="number">2s</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
 </ul>
-<h3 id="使用Promise封装简化版axios中get方法"><a href="#使用Promise封装简化版axios中get方法" class="headerlink" title="使用Promise封装简化版axios中get方法"></a>使用Promise封装简化版axios中get方法</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> MyAxios = &#123;</span><br><span class="line">  get: <span class="function"><span class="keyword">function</span>(<span class="params">url</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve,reject</span>) =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">const</span> XHR = <span class="keyword">new</span> XMLHttpRequest()</span><br><span class="line">      XHR.open(<span class="string">'GET'</span>,url,<span class="literal">true</span>)</span><br><span class="line">      XHR.onreadystatechange = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">this</span>.readyState !== <span class="number">4</span>) &#123;</span><br><span class="line">          <span class="keyword">return</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">this</span>.status === <span class="number">200</span>) &#123;</span><br><span class="line">          resolve(<span class="keyword">this</span>.response)</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">          reject(<span class="keyword">new</span> <span class="built_in">Error</span>(<span class="keyword">this</span>.statusText))</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">      XHR.send()</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="设置各时间的元素样式"><a href="#设置各时间的元素样式" class="headerlink" title="设置各时间的元素样式"></a>设置各时间的元素样式</h4><p>animation强大的功能之一就是它可以设置动画执行过程中各个时间点的元素样式。代码如下<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">@keyframes myAnimation &#123;</span><br><span class="line"><span class="meta">  0%</span><span class="bash"> &#123; ... &#125;</span></span><br><span class="line"><span class="meta">  25%</span><span class="bash"> &#123; ... &#125;</span></span><br><span class="line"><span class="meta">  50%</span><span class="bash"> &#123; ... &#125;</span></span><br><span class="line"><span class="meta">  70%</span><span class="bash"> &#123; ... &#125;</span></span><br><span class="line"><span class="meta">  100%</span><span class="bash"> &#123; ... &#125;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="设置动画播放次数"><a href="#设置动画播放次数" class="headerlink" title="设置动画播放次数"></a>设置动画播放次数</h4><p>动画播放次数子属性animation-iteration-count有两个值 n|infinite</p>
+<ul>
+<li>n表示动画播放的次数</li>
+<li>infinite表示无限播放动画<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">  <span class="attribute">animation</span>: myAnimation <span class="number">2s</span> <span class="number">6</span>; <span class="comment">/* 动画播放6次 */</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">  <span class="attribute">animation</span>: myAnimation <span class="number">2s</span> infinite; <span class="comment">/* 无限播放动画 */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="设置来回运动"><a href="#设置来回运动" class="headerlink" title="设置来回运动"></a>设置来回运动</h4><p>子属性animation-direction动画方向有一个值alternate(动画在奇数次（1、3、5…）正向播放，在偶数次（2、4、6…）反向播放)，通过该值设置动画来回运动。<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">  <span class="attribute">animation</span>: myAnimation <span class="number">2s</span> infinite alternate;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>参考链接：<br><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_Animations/Using_CSS_animations" target="_blank" rel="noopener">https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_Animations/Using_CSS_animations</a><br>[<a href="http://www.runoob.com/cssref/css3-pr-animation.html]" target="_blank" rel="noopener">http://www.runoob.com/cssref/css3-pr-animation.html]</a><br>(<a href="http://www.runoob.com/cssref/css3-pr-animation.html" target="_blank" rel="noopener">http://www.runoob.com/cssref/css3-pr-animation.html</a>)</p>
 
       
 
@@ -205,11 +256,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">es6</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">css</a>
         		</li>
       		
 		</ul>
@@ -265,7 +312,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://eli.me/2018/05/01/Promise简单总结/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://eli.me/2018/05/04/css3动画/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -279,18 +326,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2018/05/04/css3动画/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          css3动画
-        
-      </div>
-    </a>
   
-  
-    <a href="/2018/05/01/关于scoped/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">关于scoped</div>
+    <a href="/2018/05/01/Promise简单总结/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Promise简单总结</div>
       <i class="icon-circle-right"></i>
     </a>
   

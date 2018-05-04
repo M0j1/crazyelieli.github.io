@@ -141,6 +141,138 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-css3动画" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/05/04/css3动画/">css3动画</a>
+    </h1>
+  
+
+        
+        <a href="/2018/05/04/css3动画/" class="archive-article-date">
+  	<time datetime="2018-05-04T06:39:11.920Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-04</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>css3新增了两种动画，一种是功能强大的animation(动画)，一种是功能相对简单的transition(过渡)。接下来我们就来简单地了解一下这两种动画。</p>
+<h3 id="animation"><a href="#animation" class="headerlink" title="animation"></a>animation</h3><h4 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h4><p>animation属性有各种子属性，如下：</p>
+<table>
+<thead>
+<tr>
+<th>子属性</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>animation-delay</td>
+<td>设置延时，即从元素加载完成之后到动画序列开始执行的这段时间。</td>
+</tr>
+<tr>
+<td>animation-direction</td>
+<td>设置动画在每次运行完后是反向运行还是重新回到开始位置重复运行。</td>
+</tr>
+<tr>
+<td>animation-duration</td>
+<td>设置动画一个周期的时长。</td>
+</tr>
+<tr>
+<td>animation-iteration-count</td>
+<td>设置动画重复次数， 可以指定infinite无限次重复动画</td>
+</tr>
+<tr>
+<td>animation-name</td>
+<td>指定由@keyframes描述的关键帧名称。</td>
+</tr>
+<tr>
+<td>animation-play-state</td>
+<td>允许暂停和恢复动画。</td>
+</tr>
+<tr>
+<td>animation-timing-function</td>
+<td>设置动画速度， 即通过建立加速度曲线，设置动画在关键帧之间是如何变化。</td>
+</tr>
+<tr>
+<td>animation-fill-mode</td>
+<td>指定动画执行前后如何为目标元素应用样式。</td>
+</tr>
+</tbody>
+</table>
+<p>####基本例子<br>使用animation需要两个步骤</p>
+<ul>
+<li>使用<code>@keyframes</code>定义一个动画</li>
+<li>css样式加上animation属性，其子属性最少写上animation-name(动画名)和animation-duration(动画一个周期时间)<br>代码如下<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">@<span class="keyword">keyframes</span> myAnimation &#123;</span><br><span class="line">  <span class="selector-tag">from</span> &#123;</span><br><span class="line">    <span class="comment">/* 起始样式 */</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="selector-tag">to</span> &#123;</span><br><span class="line">    <span class="comment">/* 最终样式 */</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">  <span class="attribute">animation</span>: myAnimation <span class="number">2s</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="设置各时间的元素样式"><a href="#设置各时间的元素样式" class="headerlink" title="设置各时间的元素样式"></a>设置各时间的元素样式</h4><p>animation强大的功能之一就是它可以设置动画执行过程中各个时间点的元素样式。代码如下<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">@keyframes myAnimation &#123;</span><br><span class="line"><span class="meta">  0%</span><span class="bash"> &#123; ... &#125;</span></span><br><span class="line"><span class="meta">  25%</span><span class="bash"> &#123; ... &#125;</span></span><br><span class="line"><span class="meta">  50%</span><span class="bash"> &#123; ... &#125;</span></span><br><span class="line"><span class="meta">  70%</span><span class="bash"> &#123; ... &#125;</span></span><br><span class="line"><span class="meta">  100%</span><span class="bash"> &#123; ... &#125;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="设置动画播放次数"><a href="#设置动画播放次数" class="headerlink" title="设置动画播放次数"></a>设置动画播放次数</h4><p>动画播放次数子属性animation-iteration-count有两个值 n|infinite</p>
+<ul>
+<li>n表示动画播放的次数</li>
+<li>infinite表示无限播放动画<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">  <span class="attribute">animation</span>: myAnimation <span class="number">2s</span> <span class="number">6</span>; <span class="comment">/* 动画播放6次 */</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">  <span class="attribute">animation</span>: myAnimation <span class="number">2s</span> infinite; <span class="comment">/* 无限播放动画 */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="设置来回运动"><a href="#设置来回运动" class="headerlink" title="设置来回运动"></a>设置来回运动</h4><p>子属性animation-direction动画方向有一个值alternate(动画在奇数次（1、3、5…）正向播放，在偶数次（2、4、6…）反向播放)，通过该值设置动画来回运动。<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">  <span class="attribute">animation</span>: myAnimation <span class="number">2s</span> infinite alternate;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>参考链接：<br><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_Animations/Using_CSS_animations" target="_blank" rel="noopener">https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_Animations/Using_CSS_animations</a><br>[<a href="http://www.runoob.com/cssref/css3-pr-animation.html]" target="_blank" rel="noopener">http://www.runoob.com/cssref/css3-pr-animation.html]</a><br>(<a href="http://www.runoob.com/cssref/css3-pr-animation.html" target="_blank" rel="noopener">http://www.runoob.com/cssref/css3-pr-animation.html</a>)</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">css</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/05/04/css3动画/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Promise简单总结" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -544,15 +676,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">vue</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">css</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">js</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">es6</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vue</a>
               </li>
             
             <div class="clearfix"></div>
