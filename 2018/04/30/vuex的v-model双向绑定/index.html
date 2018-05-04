@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="Eli的博客">
 <meta property="og:description" content="说明vuex思想中的state是只能通过mutation改变的，所以如果想让state和v-model进行双向绑定，可以通过调用mutation来改变state，同时配合computed达到双向绑定的效果。 Vuex123456789const state = &amp;#123;  mes: &apos;mes&apos;&amp;#125;const mutation = &amp;#123;  updateMes: (state,da">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-05-04T08:04:51.284Z">
+<meta property="og:updated_time" content="2018-05-04T08:08:05.385Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="vuex的v-model双向绑定">
 <meta name="twitter:description" content="说明vuex思想中的state是只能通过mutation改变的，所以如果想让state和v-model进行双向绑定，可以通过调用mutation来改变state，同时配合computed达到双向绑定的效果。 Vuex123456789const state = &amp;#123;  mes: &apos;mes&apos;&amp;#125;const mutation = &amp;#123;  updateMes: (state,da">
@@ -163,7 +163,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h1><p>vuex思想中的state是只能通过mutation改变的，所以如果想让state和v-model进行双向绑定，可以通过调用mutation来改变state，同时配合computed达到双向绑定的效果。</p>
+        <h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><p>vuex思想中的state是只能通过mutation改变的，所以如果想让state和v-model进行双向绑定，可以通过调用mutation来改变state，同时配合computed达到双向绑定的效果。</p>
 <h3 id="Vuex"><a href="#Vuex" class="headerlink" title="Vuex"></a>Vuex</h3><figure class="highlight pf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">const <span class="keyword">state</span> = &#123;</span><br><span class="line">  mes: 'mes'</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">const mutation = &#123;</span><br><span class="line">  updateMes: (<span class="keyword">state</span>,data) =&gt; &#123;</span><br><span class="line">    <span class="keyword">state</span>.mes = data</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="模板"><a href="#模板" class="headerlink" title="模板"></a>模板</h3><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;input <span class="attribute">type</span>=<span class="string">"text"</span> <span class="attribute">v-model</span>=<span class="string">"mes"</span>&gt;</span><br></pre></td></tr></table></figure>
 <h3 id="script"><a href="#script" class="headerlink" title="script"></a>script</h3><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">computed: &#123;</span><br><span class="line">  mes: &#123;</span><br><span class="line">    <span class="keyword">get</span> () &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="keyword">this</span>.$store.state.mes</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="keyword">set</span> (value) &#123;</span><br><span class="line">      <span class="keyword">this</span>.$store.commit(<span class="string">'updateMes'</span>,value)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -406,11 +406,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">css</a>
+                <a href="javascript:void(0)" class="js-tag color4">vue</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vue</a>
+                <a href="javascript:void(0)" class="js-tag color4">css</a>
               </li>
             
             <div class="clearfix"></div>
