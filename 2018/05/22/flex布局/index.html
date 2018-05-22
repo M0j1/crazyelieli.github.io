@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="Eli的博客">
 <meta property="og:description" content="flex布局是什么flex布局，即弹性布局，是css3新增的布局，可以通过设置好的规则来排列容器内的项目，而不必计算项目的宽度和边距。通过flex布局可以很快速，方便地进行网页布局。 基本概念容器默认存在两根轴：  水平方向的主轴：项目沿着主轴方向排列 垂直方向的交叉轴设置flex布局后，容器内项目的float,clear,vartical-align属性将失效。使用flex使用flex布局首先需">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-05-22T07:58:48.343Z">
+<meta property="og:updated_time" content="2018-05-22T08:02:19.417Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="flex布局总结">
 <meta name="twitter:description" content="flex布局是什么flex布局，即弹性布局，是css3新增的布局，可以通过设置好的规则来排列容器内的项目，而不必计算项目的宽度和边距。通过flex布局可以很快速，方便地进行网页布局。 基本概念容器默认存在两根轴：  水平方向的主轴：项目沿着主轴方向排列 垂直方向的交叉轴设置flex布局后，容器内项目的float,clear,vartical-align属性将失效。使用flex使用flex布局首先需">
@@ -170,16 +170,264 @@
 <li>垂直方向的交叉轴<br>设置flex布局后，容器内项目的float,clear,vartical-align属性将失效。<h3 id="使用flex"><a href="#使用flex" class="headerlink" title="使用flex"></a>使用flex</h3>使用flex布局首先需要给容器，即父元素，设置display: flex;<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: flex;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
+<a id="more"></a>
 <p>设置完后容器和项目便分别会有6个属性来进行详细的布局设置。</p>
-<h3 id="容器的属性"><a href="#容器的属性" class="headerlink" title="容器的属性"></a>容器的属性</h3><p>容器有6个属性：<br>|属性|描述|<br>|—|—|<br>|flex-direction|设置主轴的方向|<br>|flex-wrap|关于换行的设置|<br>|flex-flow|flex-direction和flex-wrap的简写|<br>|justify-content|设置项目在主轴方向的对齐方式|<br>|align-items|设置项目在交叉轴方向的对齐方式|<br>|align-content|设置多行时，所有项目的整体对齐方式|<br>下面列出个属性的属性值：</p>
+<h3 id="容器的属性"><a href="#容器的属性" class="headerlink" title="容器的属性"></a>容器的属性</h3><p>容器有6个属性：</p>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>flex-direction</td>
+<td>设置主轴的方向</td>
+</tr>
+<tr>
+<td>flex-wrap</td>
+<td>关于换行的设置</td>
+</tr>
+<tr>
+<td>flex-flow</td>
+<td>flex-direction和flex-wrap的简写</td>
+</tr>
+<tr>
+<td>justify-content</td>
+<td>设置项目在主轴方向的对齐方式</td>
+</tr>
+<tr>
+<td>align-items</td>
+<td>设置项目在交叉轴方向的对齐方式</td>
+</tr>
+<tr>
+<td>align-content</td>
+<td>设置多行时，所有项目的整体对齐方式</td>
+</tr>
+</tbody>
+</table>
+<p>下面列出个属性的属性值：</p>
 <ul>
-<li>flex-direction:<br>|属性值|描述|<br>|—|—|<br>|row(默认)|从左往右|<br>|column|从上往下|<br>|row-reverse|从右往左|<br>|column-reverse|从下往上|</li>
-<li>flex-wrap:<br>|属性值|描述|<br>|—|—|<br>|nowrap(默认)|默认不换行|<br>|wrap|换行，第一行在上方|<br>|wrap-reverse|换行，第一行在下方|</li>
-<li>flex-flow:<br>|属性值|描述|<br>|—|—|<br>|row nowrap(默认)|简写|<br>|…|…|</li>
-<li>justify-content:<br>假设主轴方向从左向右<br>|属性值|描述|<br>|—|—|<br>|flex-start(默认)|左对齐|<br>|flex-end|右对齐|<br>|center|居中|<br>|space-between|两端对齐，项目之间有间隔，且各间隔相等|<br>|space-around|每个项目两侧都有间隔，且各间隔相等|</li>
-<li>align-items:<br>假设交叉轴方向从上到下<br>|属性值|描述|<br>|—|—|<br>|flex-start(默认)|上对齐|<br>|flex-end|下对齐|<br>|center|居中|<br>|stretch(默认)|假设项目未设置高度或设置auto，将占据整个容器的高度|<br>|baseline|项目的第一行文字的基线对齐|</li>
-<li>align-content:<br>|属性值|描述|<br>|—|—|<br>|flex-start|与交叉轴的起点对齐|<br>|flex-end|与交叉轴的终点对齐|<br>|center|与交叉轴的中点对齐|<br>|space-between|与交叉轴的两端对齐，轴线之间的间隔平均分布|<br>|space-around|根轴线两侧的间隔都相等。所以，轴线之间的间隔比轴线与边框的间隔大一倍。|<br>|stretch(默认值)|轴线占满整个交叉轴。|<h3 id="项目的属性"><a href="#项目的属性" class="headerlink" title="项目的属性"></a>项目的属性</h3>项目的属性也有6个：<br>|属性|描述|默认值|<br>|—|—|—|<br>|order|定义项目的排列顺序，order越小排列越前|0|<br>|flex-grow|定义项目的放大比例，放大后占据剩余空间，各项目占据剩余空间的多少，根据该比例来分配|0|<br>|flex-shrink|定义项目的缩小比例，当容器空间不足时各项目将会缩小，各项目缩小多少，根据该比例来分配|1|<br>|flex-basis|定义项目占据的主轴空间|auto|<br>|flex|flex-grow,flex-shrink,flex-basis的简写|0,1,auto|<br>|align-self|设置单个项目的对齐方式，可覆盖容器的align-items属性，有auto,flex-start,flex-end,center,stretch,baseline|auto(表示继承父元素align-items属性)</li>
+<li>flex-direction:</li>
 </ul>
+<table>
+<thead>
+<tr>
+<th>属性值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>row(默认)</td>
+<td>从左往右</td>
+</tr>
+<tr>
+<td>column</td>
+<td>从上往下</td>
+</tr>
+<tr>
+<td>row-reverse</td>
+<td>从右往左</td>
+</tr>
+<tr>
+<td>column-reverse</td>
+<td>从下往上</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>flex-wrap:</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>属性值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>nowrap(默认)</td>
+<td>默认不换行</td>
+</tr>
+<tr>
+<td>wrap</td>
+<td>换行，第一行在上方</td>
+</tr>
+<tr>
+<td>wrap-reverse</td>
+<td>换行，第一行在下方</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>flex-flow:</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>属性值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>row nowrap(默认)</td>
+<td>简写</td>
+</tr>
+<tr>
+<td>…</td>
+<td>…</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>justify-content:<br>假设主轴方向从左向右</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>属性值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>flex-start(默认)</td>
+<td>左对齐</td>
+</tr>
+<tr>
+<td>flex-end</td>
+<td>右对齐</td>
+</tr>
+<tr>
+<td>center</td>
+<td>居中</td>
+</tr>
+<tr>
+<td>space-between</td>
+<td>两端对齐，项目之间有间隔，且各间隔相等</td>
+</tr>
+<tr>
+<td>space-around</td>
+<td>每个项目两侧都有间隔，且各间隔相等</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>align-items:<br>假设交叉轴方向从上到下</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>属性值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>flex-start(默认)</td>
+<td>上对齐</td>
+</tr>
+<tr>
+<td>flex-end</td>
+<td>下对齐</td>
+</tr>
+<tr>
+<td>center</td>
+<td>居中</td>
+</tr>
+<tr>
+<td>stretch(默认)</td>
+<td>假设项目未设置高度或设置auto，将占据整个容器的高度</td>
+</tr>
+<tr>
+<td>baseline</td>
+<td>项目的第一行文字的基线对齐</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>align-content:</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>属性值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>flex-start</td>
+<td>与交叉轴的起点对齐</td>
+</tr>
+<tr>
+<td>flex-end</td>
+<td>与交叉轴的终点对齐</td>
+</tr>
+<tr>
+<td>center</td>
+<td>与交叉轴的中点对齐</td>
+</tr>
+<tr>
+<td>space-between</td>
+<td>与交叉轴的两端对齐，轴线之间的间隔平均分布</td>
+</tr>
+<tr>
+<td>space-around</td>
+<td>根轴线两侧的间隔都相等。所以，轴线之间的间隔比轴线与边框的间隔大一倍。</td>
+</tr>
+<tr>
+<td>stretch(默认值)</td>
+<td>轴线占满整个交叉轴。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="项目的属性"><a href="#项目的属性" class="headerlink" title="项目的属性"></a>项目的属性</h3><p>项目的属性也有6个：</p>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>描述</th>
+<th>默认值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>order</td>
+<td>定义项目的排列顺序，order越小排列越前</td>
+<td>0</td>
+</tr>
+<tr>
+<td>flex-grow</td>
+<td>定义项目的放大比例，放大后占据剩余空间，各项目占据剩余空间的多少，根据该比例来分配</td>
+<td>0</td>
+</tr>
+<tr>
+<td>flex-shrink</td>
+<td>定义项目的缩小比例，当容器空间不足时各项目将会缩小，各项目缩小多少，根据该比例来分配</td>
+<td>1</td>
+</tr>
+<tr>
+<td>flex-basis</td>
+<td>定义项目占据的主轴空间</td>
+<td>auto</td>
+</tr>
+<tr>
+<td>flex</td>
+<td>flex-grow,flex-shrink,flex-basis的简写</td>
+<td>0,1,auto</td>
+</tr>
+<tr>
+<td>align-self</td>
+<td>设置单个项目的对齐方式，可覆盖容器的align-items属性，有auto,flex-start,flex-end,center,stretch,baseline</td>
+<td>auto(表示继承父元素align-items属性)</td>
+</tr>
+</tbody>
+</table>
 <h3 id="参考链接：http-www-ruanyifeng-com-blog-2015-07-flex-grammar-html"><a href="#参考链接：http-www-ruanyifeng-com-blog-2015-07-flex-grammar-html" class="headerlink" title="参考链接：http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html?^%$"></a>参考链接：<a href="http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html?^%$" target="_blank" rel="noopener">http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html?^%$</a></h3>
       
 
@@ -408,11 +656,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vue</a>
+                <a href="javascript:void(0)" class="js-tag color3">js</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">js</a>
+                <a href="javascript:void(0)" class="js-tag color4">es6</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -420,11 +668,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">css</a>
+                <a href="javascript:void(0)" class="js-tag color4">vue</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">es6</a>
+                <a href="javascript:void(0)" class="js-tag color4">css</a>
               </li>
             
             <div class="clearfix"></div>
