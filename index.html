@@ -163,16 +163,9 @@
       
         <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>闭包是javascript中一个很重要的概念，同时也是一个比较难理解的概念。接下来我将简单总结下在看完《你不知道的javascript(上)》后，我所理解的闭包。注意,想要理解闭包需要对作用域的原理有深入的了解。</p>
 <h3 id="什么是闭包"><a href="#什么是闭包" class="headerlink" title="什么是闭包"></a>什么是闭包</h3><p>闭包：当函数可以访问所在作用域时，就产生了闭包，即使函数是在当前作用域之外执行。<br>接下来看一个展示了闭包的例子：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> a = <span class="number">1</span></span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">bar</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(a)</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> bar</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> fn = foo()</span><br><span class="line"></span><br><span class="line">fn() <span class="comment">// 1</span></span><br></pre></td></tr></table></figure></p>
-<p>上面的结果对于了解过作用域原理，但是还没学习闭包的人肯定会感到惊讶。因为根据词法作用域的查找规则，外部作用域是访问不到内部作用域的数据，但是在这fn函数却可以访问到foo内部的a，从而打印出1，这就是闭包的效果。</p>
-<p>让我们重新看一下上面对闭包的定义，你是否开始有点理解闭包了。无论通过何种手段将内部函数传递到所在词法作用域以外，这个函数都会拥有它定义所在的作用域的引用，这个引用就叫作闭包，无论在何处执行这个函数都会使用闭包。</p>
-<h3 id="定时器例子"><a href="#定时器例子" class="headerlink" title="定时器例子"></a>定时器例子</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> a = <span class="number">1</span></span><br><span class="line">  setTimeout(<span class="function"><span class="keyword">function</span> <span class="title">fn</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(a)</span><br><span class="line">  &#125;,<span class="number">1000</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">foo() <span class="comment">// 1</span></span><br></pre></td></tr></table></figure>
-<p>常见的定时器就是一个闭包的例子，上面代码中1秒后函数fn并不是在它原始定义作用域中执行，但是依然能够访问到a。所以其实闭包随处可见，在事件监听、ajax请求、Web Workers或者其他的异步(或者同步)任务中，只要使用了回调函数，其实就是使用了闭包。</p>
-<p>同时闭包是强大的工具，可以用来实现模块等模式。<br>模块两个主要特征：</p>
-<ul>
-<li>为创建内部作用域而调用了一个包装函数。</li>
-<li>包装函数的返回值必须至少包括一个对内部函数的引用，这样就会创建涵盖整个包装函数内部作用域的闭包。</li>
-</ul>
-<h3 id="参考书籍：https-book-douban-com-subject-26351021-》》"><a href="#参考书籍：https-book-douban-com-subject-26351021-》》" class="headerlink" title="参考书籍：https://book.douban.com/subject/26351021/》》)"></a>参考书籍：<a href="《《你不知道的Javascript(上卷">https://book.douban.com/subject/26351021/</a>》》)</h3>
+        
+          <a class="article-more-a" href="/2018/05/22/认识闭包/#more">more >></a>
+        
       
 
       
@@ -906,11 +899,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vue</a>
+                <a href="javascript:void(0)" class="js-tag color3">js</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">js</a>
+                <a href="javascript:void(0)" class="js-tag color4">es6</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">vue</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -919,10 +916,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">css</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">es6</a>
               </li>
             
             <div class="clearfix"></div>
