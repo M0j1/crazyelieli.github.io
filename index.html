@@ -141,6 +141,105 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-事件传播机制和事件委托" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/05/25/事件传播机制和事件委托/">事件传播机制和事件委托</a>
+    </h1>
+  
+
+        
+        <a href="/2018/05/25/事件传播机制和事件委托/" class="archive-article-date">
+  	<time datetime="2018-05-25T15:06:09.061Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-25</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="事件传播"><a href="#事件传播" class="headerlink" title="事件传播"></a>事件传播</h3><p>js中一个元素触发事件时，该事件会在元素之间传播，传播的过程如下：</p>
+<ul>
+<li>捕获阶段：由顶层Window到document，html等等，直到目标节点</li>
+<li>目标阶段：在目标节点触发</li>
+<li>冒泡阶段：由目标节点,然后父元素，一个一个节点传播到Window</li>
+</ul>
+<p>途中传播到的节点只要绑定了相应的事件函数便会执行。</p>
+<p>on绑定事件只有目标阶段和冒泡阶段。<br><!--mored--><br><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//html</span></span><br><span class="line">&lt;div&gt;</span><br><span class="line">  &lt;p&gt;&lt;p&gt;</span><br><span class="line">&lt;div&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment">//JS  </span></span><br><span class="line"><span class="keyword">var</span> oDiv = <span class="built_in">document</span>.querySelector(<span class="string">'div'</span>)</span><br><span class="line"><span class="keyword">var</span> oP = <span class="built_in">document</span>.querySelector(<span class="string">'p'</span>)</span><br><span class="line">oDiv.addEventListener(<span class="string">'click'</span>,<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'div冒泡'</span>)</span><br><span class="line">&#125;,<span class="literal">false</span>)</span><br><span class="line">oP.addEventListener(<span class="string">'click'</span>,<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'p冒泡'</span>)</span><br><span class="line">&#125;,<span class="literal">false</span>)</span><br><span class="line">oP.addEventListener(<span class="string">'click'</span>,<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'p捕获'</span>)</span><br><span class="line">&#125;,<span class="literal">true</span>)</span><br><span class="line">oDiv.addEventListener(<span class="string">'click'</span>,<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'div捕获'</span>)</span><br><span class="line">&#125;,<span class="literal">true</span>)</span><br><span class="line"><span class="comment">//点击p后打印的内容</span></span><br><span class="line"><span class="comment">//div捕获</span></span><br><span class="line"><span class="comment">//p冒泡</span></span><br><span class="line"><span class="comment">//p捕获</span></span><br><span class="line"><span class="comment">//div冒泡</span></span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>上述代码中p是div子元素，都给p和div分别绑定了捕获过程和冒泡过程的事件。</li>
+<li>因为捕获在先，冒泡在后，所以即便冒泡先绑定，先打印的还是div捕获，后才是div冒泡。</li>
+<li>但是对于p来说，先打印的却是p冒泡，所以由此可见，对于目标节点p来说，没有捕获冒泡的说法，事件的执行先后只跟事件的绑定顺序有关。<h3 id="阻止传播"><a href="#阻止传播" class="headerlink" title="阻止传播"></a>阻止传播</h3>阻止事件的传播(捕获和冒泡)有两种方式：</li>
+<li>e.cancelBubble = true</li>
+<li>e.stopPropagation()<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> oDiv = <span class="built_in">document</span>.querySelector(<span class="string">'div'</span>)</span><br><span class="line"><span class="keyword">var</span> oP = <span class="built_in">document</span>.querySelector(<span class="string">'p'</span>)</span><br><span class="line">oDiv.addEventListener(<span class="string">'click'</span>,<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'div冒泡'</span>)</span><br><span class="line">&#125;,<span class="literal">false</span>)</span><br><span class="line">oP.addEventListener(<span class="string">'click'</span>,<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'p冒泡'</span>)</span><br><span class="line">&#125;,<span class="literal">false</span>)</span><br><span class="line">oP.addEventListener(<span class="string">'click'</span>,<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'p捕获'</span>)</span><br><span class="line">&#125;,<span class="literal">true</span>)</span><br><span class="line">oDiv.addEventListener(<span class="string">'click'</span>,<span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">  e.stopPropagation()</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'div捕获'</span>)</span><br><span class="line">&#125;,<span class="literal">true</span>)</span><br><span class="line"><span class="comment">//点击p后打印的内容</span></span><br><span class="line"><span class="comment">//div捕获</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="阻止默认行为"><a href="#阻止默认行为" class="headerlink" title="阻止默认行为"></a>阻止默认行为</h3><ul>
+<li>on绑定的函数： return false</li>
+<li>addEventListener绑定的函数： e.preventDefault()<h3 id="事件委托"><a href="#事件委托" class="headerlink" title="事件委托"></a>事件委托</h3>通过事件冒泡机制可以事件委托，即把事件函数绑定在父元素上，但是处理的却是子元素的事件，而且可以处理多个子元素，通过e.target来判断是哪个子元素，从而处理相应的事件。这样做的好处有两个：</li>
+<li>绑定一个函数可以处理多个事件，提高代码简洁性。</li>
+<li>事件委托可以给动态添加的dom绑定事件。对于动态添加的dom正常情况下是绑定不了事件的，因为它是后面添加进页面的，一开始本来就不存在。而事件委托就可以做到。<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> ul = <span class="built_in">document</span>.querySelector(<span class="string">'ul'</span>);</span><br><span class="line"></span><br><span class="line">ul.addEventListener(<span class="string">'click'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">event</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (event.target.tagName.toLowerCase() === <span class="string">'li'</span>) &#123;</span><br><span class="line">    <span class="comment">// some code</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">DOM</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/05/25/事件传播机制和事件委托/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-let和const" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -743,81 +842,6 @@
 
 
   
-    <article id="post-Vue使用axios上传文件" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/05/01/Vue使用axios上传文件/">Vue使用axios上传文件</a>
-    </h1>
-  
-
-        
-        <a href="/2018/05/01/Vue使用axios上传文件/" class="archive-article-date">
-  	<time datetime="2018-05-01T12:18:47.677Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-01</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="模板"><a href="#模板" class="headerlink" title="模板"></a>模板</h3><figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="keyword">input</span> <span class="keyword">type</span>=<span class="string">"file"</span> <span class="keyword">ref</span>=<span class="string">"myFile"</span> &gt;</span><br></pre></td></tr></table></figure>
-<h3 id="script"><a href="#script" class="headerlink" title="script"></a>script</h3><figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">let prod = <span class="keyword">new</span> FormData()</span><br><span class="line">let file = <span class="keyword">this</span>.$refs.myFile.files[<span class="number">0</span>]</span><br><span class="line">prod.append(<span class="string">'file'</span>,file)</span><br><span class="line"></span><br><span class="line">let config = &#123;</span><br><span class="line">  headers: &#123;</span><br><span class="line">    <span class="string">'Content-Type'</span>: <span class="string">'multipart/form-data'</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">axios.post(url,prod,config).<span class="keyword">then</span>(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  ...</span><br><span class="line">&#125;).<span class="keyword">catch</span>(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  ...</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">vue</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/05/01/Vue使用axios上传文件/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -911,15 +935,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">js</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">es6</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">vue</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">js</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -927,7 +947,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">es6</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">css</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">DOM</a>
               </li>
             
             <div class="clearfix"></div>
