@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="Eli的博客">
 <meta property="og:description" content="事件传播js中一个元素触发事件时，该事件会在元素之间传播，传播的过程如下：  捕获阶段：由顶层Window到document，html等等，直到目标节点 目标阶段：在目标节点触发 冒泡阶段：由目标节点,然后父元素，一个一个节点传播到Window  途中传播到的节点只要绑定了相应的事件函数便会执行。 on绑定事件只有目标阶段和冒泡阶段。">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-05-25T16:43:53.138Z">
+<meta property="og:updated_time" content="2018-06-15T09:30:38.463Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="事件传播机制和事件委托">
 <meta name="twitter:description" content="事件传播js中一个元素触发事件时，该事件会在元素之间传播，传播的过程如下：  捕获阶段：由顶层Window到document，html等等，直到目标节点 目标阶段：在目标节点触发 冒泡阶段：由目标节点,然后父元素，一个一个节点传播到Window  途中传播到的节点只要绑定了相应的事件函数便会执行。 on绑定事件只有目标阶段和冒泡阶段。">
@@ -188,8 +188,9 @@
 </ul>
 <h3 id="事件委托"><a href="#事件委托" class="headerlink" title="事件委托"></a>事件委托</h3><p>通过事件冒泡机制可以事件委托，即把事件函数绑定在父元素上，但是处理的却是子元素的事件，而且可以处理多个子元素，通过e.target来判断是哪个子元素，从而处理相应的事件。这样做的好处有两个：</p>
 <ul>
-<li>绑定一个函数可以处理多个事件，提高代码简洁性。</li>
-<li>事件委托可以给动态添加的dom绑定事件。对于动态添加的dom正常情况下是绑定不了事件的，因为它是后面添加进页面的，一开始本来就不存在。而事件委托就可以做到。<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> ul = <span class="built_in">document</span>.querySelector(<span class="string">'ul'</span>);</span><br><span class="line"></span><br><span class="line">ul.addEventListener(<span class="string">'click'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">event</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (event.target.tagName.toLowerCase() === <span class="string">'li'</span>) &#123;</span><br><span class="line">    <span class="comment">// some code</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></li>
+<li>提高代码简洁性：绑定一个函数可以处理多个事件。</li>
+<li>事件委托可以给动态添加的dom绑定事件。对于动态添加的dom正常情况下是绑定不了事件的，因为它是后面添加进页面的，一开始本来就不存在。而事件委托就可以做到。</li>
+<li>提高性能：因为只绑定一个事件函数，节省内存，其次只有父元素与DOM存在交互，减少操作DOM的次数，提高代码的性能。<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> ul = <span class="built_in">document</span>.querySelector(<span class="string">'ul'</span>);</span><br><span class="line"></span><br><span class="line">ul.addEventListener(<span class="string">'click'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">event</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (event.target.tagName.toLowerCase() === <span class="string">'li'</span>) &#123;</span><br><span class="line">    <span class="comment">// some code</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></li>
 </ul>
 
       
@@ -440,19 +441,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vue</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">es7</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">css</a>
+                <a href="javascript:void(0)" class="js-tag color4">vue</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">DOM</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">css</a>
               </li>
             
             <div class="clearfix"></div>
